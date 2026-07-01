@@ -1,0 +1,6 @@
+{
+  "name": "Bhardwaj Innovations",
+  "description": "Enterprise-grade corporate website for Bhardwaj Innovations - Leading IoT, GPS tracking, and fleet management solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
