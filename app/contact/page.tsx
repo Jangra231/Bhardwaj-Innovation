@@ -8,6 +8,8 @@ export const metadata = {
     "Connect with Bhardwaj Innovations for vehicle fleet tracking installations, custom IoT product designs, or compliance certification audits.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default function ContactPage() {
   return (
     <div className="relative">

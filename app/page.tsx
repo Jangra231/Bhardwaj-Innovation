@@ -14,7 +14,7 @@ const renderIcon = (name: string, className = "h-6 w-6 text-sky-500") => {
 };
 
 export default function HomePage() {
-  const previewServices = SERVICES_DATA;
+  const previewServices = SERVICES_DATA.slice(0, 4);
   const featuredProducts = PRODUCTS_DATA.slice(0, 4);
 
   const stats = [

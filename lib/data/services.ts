@@ -107,12 +107,12 @@ export const SERVICES_DATA: ServiceDetail[] = [
     icon: "Camera",
     shortDesc: "Full HD smart fleet dashcams with ADAS, Driver Monitoring (DMS), and real-time live video streaming.",
     longDesc: "Upgrade your fleet safety with smart dashcams powered by Artificial Intelligence. Designed with Advanced Driver Assistance Systems (ADAS) and Driver Monitoring Systems (DMS), our solutions track road hazards and detect driver distraction or fatigue in real-time, streaming high-definition video evidence directly to the cloud.",
-    image: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&q=80&w=1000",
+    image: "https://images.unsplash.com/photo-1516579486067-6d7ef4d67c1e?auto=format&fit=crop&q=80&w=1000",
     gallery: [
-      "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&q=80&w=1000"
+      "https://images.unsplash.com/photo-1516579486067-6d7ef4d67c1e?auto=format&fit=crop&q=80&w=1000",
+      "https://images.unsplash.com/photo-1643686978109-499f1e9d4bd1?auto=format&fit=crop&q=80&w=1000",
+      "https://images.unsplash.com/photo-1624602482469-3cd73308e649?auto=format&fit=crop&q=80&w=1000",
+      "https://images.unsplash.com/photo-1453004031490-6310f5a144e0?auto=format&fit=crop&q=80&w=1000"
     ],
     features: [
       "Dual-channel recording: Road-facing 1080P & Cabin-facing AI camera",
@@ -206,12 +206,12 @@ export const SERVICES_DATA: ServiceDetail[] = [
     icon: "Building",
     shortDesc: "Compliant tracking solutions matching strict government regulations, public transport buses, and utility vehicles.",
     longDesc: "We provide specialized, compliant solutions for municipal, regional, and national government fleets. Designed in strict accordance with AIS-140 and national standard mandates, our hardware and tracking servers support public safety systems, city buses, waste disposal vectors, and emergency vehicles.",
-    image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=1000",
+    image: "https://images.unsplash.com/photo-1554734867-bf3c00a49371?auto=format&fit=crop&q=80&w=1000",
     gallery: [
-      "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=1000",
       "https://images.unsplash.com/photo-1554734867-bf3c00a49371?auto=format&fit=crop&q=80&w=1000",
       "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&q=80&w=1000",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000"
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000",
+      "https://images.unsplash.com/photo-1577412644316-5d3a4b2a6c0c?auto=format&fit=crop&q=80&w=1000"
     ],
     features: [
       "AIS 140 Certified GPS hardware with dual SIM and emergency SOS panic trigger",
