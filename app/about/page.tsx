@@ -1,0 +1,1390 @@
+"use client";
+
+import React, { useState } from "react";
+import * as Lucide from "lucide-react";
+import Link from "next/link";
+import { motion } from "motion/react";
+
+const renderIcon = (name: string, className = "h-6 w-6 text-sky-500") => {
+  const IconComponent = (
+    Lucide as unknown as Record<
+      string,
+      React.ComponentType<{ className?: string }>
+    >
+  )[name];
+  if (!IconComponent) return <Lucide.CheckCircle className={className} />;
+  return <IconComponent className={className} />;
+};
+
+export default function AboutPage() {
+  const [activePurpose, setActivePurpose] = useState<"mission" | "vision">("mission");
+
+  const purposeContent = {
+    mission: {
+      eyebrow: "Our Mission",
+      title: "Engineering clarity into every operation.",
+      description:
+        "We empower organizations with intelligent technology that improves safety, operational efficiency, and long-term value.",
+      points: ["Protect people, assets, and cargo", "Turn live data into confident action", "Deliver reliable field-to-cloud support"],
+    },
+    vision: {
+      eyebrow: "Our Vision",
+      title: "A smarter, safer connected supply chain.",
+      description:
+        "We aim to be the trusted technology partner for transport and logistics organizations building more visible, resilient, and connected operations.",
+      points: ["Lead with practical IoT innovation", "Enable safer transport at every scale", "Make connected operations easier to manage"],
+    },
+  };
+
+  const achievements = [
+    { count: "10K+", label: "Active Tracking Nodes", icon: "Satellite" },
+    { count: "15+", label: "National Compliance Certs", icon: "Award" },
+    { count: "99.9%", label: "Real-time Telemetry Uptime", icon: "Activity" },
+    { count: "50M+", label: "Kilometers Monitored", icon: "MapPinned" },
+  ];
+
+  const coreValues = [
+    {
+      title: "Innovation",
+      desc: "Constantly researching and embedding modern AI and IoT telemetry protocols to stay ahead of market dynamics.",
+      icon: "Cpu",
+      gradient: "from-sky-500 to-blue-600",
+      initials: "AB",
+      image: "", // Add a photo path such as /media/leadership/amit-bhardwaj.jpg
+    },
+    {
+      title: "Integrity",
+      desc: "Delivering honest security metrics, solid physical hardware guarantees, and strictly secure data vaults.",
+      icon: "ShieldCheck",
+      gradient: "from-emerald-500 to-teal-600",
+      initials: "AB",
+      image: "", // Add a photo path such as /media/leadership/ankit-bhardwaj.jpg
+    },
+    {
+      title: "Customer Focus",
+      desc: "Studying our client workflows deeply to configure custom interfaces, reports, and dedicated field support.",
+      icon: "UserHeart",
+      gradient: "from-purple-500 to-violet-600",
+    },
+    {
+      title: "Excellence",
+      desc: "Ensuring 99%+ telemetry server SLAs, robust hardware waterproof ratings, and AIS-140 CDAC compliance.",
+      icon: "Award",
+      gradient: "from-amber-500 to-orange-600",
+      initials: "SS",
+      image: "", // Add a photo path such as /media/leadership/shiv-shankar-ji.jpg
+    },
+  ];
+
+  const whatWeDo = [
+    {
+      title: "IoT & Hardware Solutions",
+      description:
+        "We manufacture and integrate advanced IoT hardware solutions designed for transport, logistics, fleet operations, and connected business environments.",
+      points: [
+        "IoT hardware solutions for transport and logistics",
+        "AIS-140 compliant vehicle tracking systems",
+        "Smart IoT device integration",
+      ],
+      link: "/products",
+    },
+
+    {
+      title: "Security & Logistics Hardware",
+      description:
+        "We provide reliable physical security and logistics solutions designed to improve cargo protection, asset security, and supply chain operations.",
+      points: [
+        "High-security metal container seals",
+        "Logistics locking solutions",
+        "Container and cargo security solutions",
+      ],
+      link: "/products",
+    },
+
+    {
+      title: "Fleet & Logistics Technology",
+      description:
+        "Our technology solutions help organizations improve fleet visibility, transportation operations, warehouse management, and logistics efficiency.",
+      points: [
+        "GPS tracking and fleet monitoring",
+        "Transport Management Systems (TMS)",
+        "Logistics software development",
+        "Warehouse and inventory management",
+      ],
+      link: "/products",
+    },
+
+    {
+      title: "Digital Transformation",
+      description:
+        "We develop scalable digital solutions that automate business processes, improve operational efficiency, and help organizations transition from manual workflows to digital platforms.",
+      points: [
+        "Enterprise web application development",
+        "Mobile application development",
+        "Process automation",
+        "Digital transformation solutions",
+      ],
+      link: "/services",
+    },
+
+    {
+      title: "AI, Analytics & Technology Consulting",
+      description:
+        "We combine software development, artificial intelligence, analytics, and technology consulting to help businesses make better decisions and build smarter digital operations.",
+      points: [
+        "AI-powered analytics",
+        "Business intelligence solutions",
+        "Advanced reporting and dashboards",
+        "Custom software development",
+        "Technology consulting",
+      ],
+      link: "/services",
+    },
+  ];
+
+  const whoWeAre = {
+    label: "Who We Are",
+    title: "Bridging Physical Products with Digital Intelligence",
+    description: [
+      "Bhardwaj Innovations specializes in designing, manufacturing, and developing technology solutions for the transport and logistics sector. We create IoT-enabled hardware products, logistics security devices, and custom software platforms that help businesses monitor, manage, and optimize their operations in real time.",
+
+      "Our expertise lies in bridging physical products with digital intelligence, enabling logistics companies to achieve greater transparency, automation, and operational excellence.",
+    ],
+    highlights: [
+      "IoT-Enabled Hardware Solutions",
+      "Logistics Security Devices",
+      "Custom Software Platforms",
+      "Real-Time Operational Visibility",
+    ],
+  };
+
+  const teamMembers = [
+    {
+      name: "Sh. Shiv Shankar Ji",
+      role: "CEO & Founder",
+      bio: "Guiding the company’s purpose, long-term relationships, and responsible growth across connected operations.",
+      icon: "Crown",
+      gradient: "from-amber-500 to-orange-600",
+    },
+    {
+      name: "Amit Bhardwaj",
+      role: "Managing Director",
+      bio: "Leading product strategy and the transformation of field telemetry into dependable business outcomes.",
+      icon: "BriefcaseBusiness",
+      gradient: "from-sky-500 to-blue-600",
+    },
+    {
+      name: "Ankit Bhardwaj",
+      role: "Chief Financial Officer",
+      bio: "Building disciplined financial systems that support sustainable delivery, compliance, and customer trust.",
+      icon: "ChartNoAxesCombined",
+      gradient: "from-emerald-500 to-teal-600",
+    },
+    {
+      name: "Vikas Bhardwaj",
+      role: "Technical Head",
+      bio: "Driving embedded systems, telemetry architecture, secure integrations, and reliable product engineering.",
+      icon: "Cpu",
+      gradient: "from-indigo-500 to-violet-600",
+      initials: "VB",
+      image: "", // Add a photo path such as /media/leadership/vikas-bhardwaj.jpg
+    },
+    {
+      name: "Operations Leadership",
+      role: "Delivery & Client Success",
+      bio: "Connecting deployments, support, compliance, and customer teams so every solution works in the field.",
+      icon: "UsersRound",
+      gradient: "from-rose-500 to-pink-600",
+      initials: "OL",
+      image: "", // Add a photo path such as /media/leadership/operations-leadership.jpg
+    },
+  ];
+
+  const partners = [
+    {
+      name: "Government & Public Sector",
+      desc: "We work with government bodies involved in procurement, logistics, and operational management. Our solutions improve transparency, operational efficiency, digital record management, workflow automation, and informed decision-making while supporting secure and reliable public-sector operations.",
+      organizations: [
+        {
+          name: "NAFED",
+          slug: "nafed",
+        },
+        {
+          name: "FCI",
+          slug: "fci",
+        },
+        {
+          name: "NCCF",
+          slug: "nccf",
+        },
+        {
+          name: "Food & Supply",
+          slug: "food-and-supply",
+        },
+      ],
+    },
+
+    {
+      name: "Transport & Logistics",
+      desc: "We develop intelligent technology solutions that streamline transportation, fleet operations, logistics management, asset tracking, workflow automation, and real-time monitoring. Our solutions help organizations optimize resources, improve operational visibility, and enhance service delivery.",
+      organizations: [
+        {
+          name: "CJ Darcl Transport",
+          slug: "cj-darcl-transport",
+        },
+        {
+          name: "Ewheels Transport",
+          slug: "ewheels-transport",
+        },
+        {
+          name: "Shrinivasa Transport",
+          slug: "shrinivasa-transport",
+        },
+        {
+          name: "South East Transport",
+          slug: "south-east-transport",
+        },
+      ],
+    },
+
+    {
+      name: "Energy & EV Mobility",
+      desc: "Our EV Division focuses on supporting the growing electric mobility ecosystem. These partnerships enable us to deliver advanced EV battery management and mobility solutions while ensuring quality, innovation, and reliability.",
+      organizations: [
+        {
+          name: "GK Minda",
+          slug: "gk-minda",
+        },
+        {
+          name: "World Victory",
+          slug: "world-victory",
+        },
+        {
+          name: "Minato Energy",
+          slug: "minato-energy",
+        },
+      ],
+    },
+  ];
+
+  return (
+    <div className="relative">
+      {/* HERO SECTION with Video Background */}
+      <section className="relative py-24 bg-slate-950 text-white overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/media/detail/fleet-control.jpg"
+            alt="Indian operations team coordinating global fleet activity"
+            className="w-full h-full object-cover opacity-35"
+          />
+          <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-950/80 to-slate-950/60"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-transparent"></div>
+        </div>
+
+        {/* Floating particles */}
+        <div className="absolute inset-0 z-1 overflow-hidden">
+          <div
+            className="absolute top-20 right-32 w-64 h-64 bg-sky-500/5 rounded-full blur-3xl animate-pulse"
+            style={{ animationDuration: "4s" }}
+          ></div>
+          <div
+            className="absolute bottom-10 left-20 w-48 h-48 bg-blue-600/5 rounded-full blur-3xl animate-pulse"
+            style={{ animationDuration: "6s" }}
+          ></div>
+          <div
+            className="absolute top-1/3 left-1/2 w-96 h-96 bg-sky-400/3 rounded-full blur-3xl animate-pulse"
+            style={{ animationDuration: "5s" }}
+          ></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center space-y-6">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/10 border border-sky-500/20 text-xs font-bold tracking-widest uppercase text-sky-400">
+            <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse"></span>
+            About Us
+          </span>
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+            Pioneering Telemetry & <br />
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-400 to-blue-500">
+              IoT Innovation
+            </span>
+          </h1>
+          <p className="text-slate-300 text-base md:text-lg max-w-2xl mx-auto font-light">
+            Dedicated to engineering high-precision hardware, responsive
+            tracking software, and compliant fleet security configurations for
+            global operations.
+          </p>
+        </div>
+      </section>
+
+      {/* =========================
+    RIGHT - VISUAL PANEL
+========================= */}
+      <div className="relative">
+        {/* Main Image Card */}
+        <div
+          className="
+    relative
+    h-105
+    md:h-125
+    rounded-3xl
+    overflow-hidden
+    shadow-2xl
+  "
+        >
+          <img
+            src="/media/detail/software-platform.jpg"
+            alt="Indian technology office supporting global logistics operations"
+            className="
+        absolute
+        inset-0
+        w-full
+        h-full
+        object-cover
+      "
+          />
+
+          {/* Overlay */}
+          <div
+            className="
+      absolute
+      inset-0
+      bg-linear-to-t
+      from-slate-950/90
+      via-slate-950/30
+      to-transparent
+    "
+          />
+
+          {/* Image Content */}
+          <div
+            className="
+      absolute
+      inset-x-0
+      bottom-0
+      p-7
+      md:p-10
+    "
+          >
+            <span
+              className="
+        inline-flex
+        px-4
+        py-2
+        rounded-full
+        bg-white/10
+        border
+        border-white/20
+        backdrop-blur-md
+        text-white
+        text-xs
+        font-bold
+        uppercase
+        tracking-widest
+      "
+            >
+              Technology + Innovation
+            </span>
+
+            <h3
+              className="
+        mt-5
+        text-3xl
+        md:text-4xl
+        font-black
+        text-white
+        leading-tight
+      "
+            >
+              Connecting
+              <span className="text-sky-400"> Hardware</span>
+              <br />
+              with
+              <span className="text-sky-400"> Intelligence</span>
+            </h3>
+
+            <p
+              className="
+        mt-4
+        text-sm
+        md:text-base
+        text-slate-300
+        leading-7
+        max-w-xl
+      "
+            >
+              We combine connected hardware, IoT technology, and intelligent
+              software to create solutions that bring real-time visibility and
+              better control to modern logistics operations.
+            </p>
+          </div>
+        </div>
+
+        {/* IoT Info Card */}
+        <div
+          className="
+    mt-5
+    bg-white
+    rounded-2xl
+    border
+    border-slate-100
+    shadow-lg
+    p-5
+    flex
+    items-center
+    gap-5
+  "
+        >
+          {/* IoT Icon */}
+          <div
+            className="
+      w-14
+      h-14
+      rounded-xl
+      bg-sky-50
+      text-sky-600
+      flex
+      items-center
+      justify-center
+      shrink-0
+    "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="w-7 h-7"
+            >
+              <circle cx="12" cy="12" r="3" />
+              <path d="M12 2v3" />
+              <path d="M12 19v3" />
+              <path d="M2 12h3" />
+              <path d="M19 12h3" />
+              <path d="M4.93 4.93l2.12 2.12" />
+              <path d="M16.95 16.95l2.12 2.12" />
+              <path d="M4.93 19.07l2.12-2.12" />
+              <path d="M16.95 7.05l2.12-2.12" />
+            </svg>
+          </div>
+
+          {/* IoT Text */}
+          <div>
+            <div
+              className="
+        text-2xl
+        font-black
+        text-sky-600
+      "
+            >
+              IoT
+            </div>
+
+            <div
+              className="
+        text-sm
+        font-bold
+        text-slate-800
+      "
+            >
+              Connected Technology
+            </div>
+
+            <p
+              className="
+        mt-1
+        text-xs
+        text-slate-500
+        leading-5
+      "
+            >
+              Hardware and software working together for smarter, more connected
+              operations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* OUR STORY SECTION with Video */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-6 text-left">
+            <span className="text-xs font-bold tracking-widest uppercase text-sky-600">
+              Our Story
+            </span>
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
+              Building a Reliable Gateway 
+            </h2>
+            <div className="space-y-4 text-slate-600 leading-relaxed font-light">
+              <p>
+                Bhardwaj Innovations is a technology-driven partnership firm
+                established on 13th January 2025, committed to revolutionizing
+                the tracking, transport and logistics industry through
+                innovative hardware and software solutions.
+              </p>
+              <p>
+                We partner with organizations that require well-organized,
+                secure, and technology-enabled transport and logistics
+                operations. By combining advanced manufacturing with intelligent
+                software development, we deliver integrated solutions that
+                improve operational efficiency, asset security, visibility,
+                compliance, and decision-making.
+              </p>
+              <p>
+                Our mission is to empower the logistics ecosystem with smart
+                tracking technologies that simplify operations, reduce losses,
+                increase productivity, and support digital transformation across
+                the supply chain.
+              </p>
+            </div>
+          </div>
+
+          {/* Video/Image with overlay */}
+          <div className="relative">
+            <div className="relative h-120 w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              >
+                <source src="/media/track-fleet.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="flex items-center gap-3 px-4 py-3 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2.5 w-2.5 rounded-full bg-red-500 animate-pulse"></span>
+                    <span className="text-xs text-white font-medium uppercase tracking-wider">
+                      Live Operations
+                    </span>
+                  </div>
+                  <div className="ml-auto flex items-center gap-4">
+                    <span className="text-xs text-white/70">
+                      10K+ Devices Active
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Decorative floating card */}
+            <div className="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg border border-slate-100 p-4 animate-float">
+              <div className="flex items-center gap-2">
+                <Lucide.TrendingUp className="h-5 w-5 text-emerald-500" />
+                <span className="text-sm font-bold text-slate-900">
+                  99.9% Uptime
+                </span>
+              </div>
+            </div>
+            {/* Decorative floating card */}
+            <div
+              className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg border border-slate-100 p-4 animate-float"
+              style={{ animationDelay: "1s" }}
+            >
+              <div className="flex items-center gap-2">
+                <Lucide.Globe className="h-5 w-5 text-sky-500" />
+                <span className="text-sm font-bold text-slate-900">
+                  Pan-India Coverage
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* INTERACTIVE MISSION & VISION */}
+      <section className="relative overflow-hidden py-22">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/media/carousel/vision-mission.jpg"
+            alt="Connected logistics hub at sunrise"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-950/90 to-sky-950/75" />
+        </div>
+
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-8 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12">
+          <div className="self-center">
+            <span className="text-xs font-bold uppercase tracking-widest text-sky-300">
+              Purpose in Action
+            </span>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+              The direction behind every deployment.
+            </h2>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-1" role="tablist" aria-label="Mission and vision">
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activePurpose === "mission"}
+                onClick={() => setActivePurpose("mission")}
+                className={`group flex items-center gap-4 rounded-2xl border p-5 text-left transition-all duration-300 ${
+                  activePurpose === "mission"
+                    ? "border-sky-300 bg-white text-slate-900 shadow-xl"
+                    : "border-white/20 bg-white/10 text-white hover:border-sky-200 hover:bg-white/15"
+                }`}
+              >
+                <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${activePurpose === "mission" ? "bg-sky-100 text-sky-700" : "bg-white/10 text-sky-200"}`}>
+                  <Lucide.Target className="h-5 w-5" />
+                </span>
+                <span>
+                  <span className="block text-sm font-bold">Our Mission</span>
+                  <span className={`mt-1 block text-xs ${activePurpose === "mission" ? "text-slate-500" : "text-sky-100"}`}>What we deliver every day</span>
+                </span>
+                <Lucide.ArrowRight className={`ml-auto h-4 w-4 transition-transform ${activePurpose === "mission" ? "translate-x-1 text-sky-600" : "text-sky-200 group-hover:translate-x-1"}`} />
+              </button>
+
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activePurpose === "vision"}
+                onClick={() => setActivePurpose("vision")}
+                className={`group flex items-center gap-4 rounded-2xl border p-5 text-left transition-all duration-300 ${
+                  activePurpose === "vision"
+                    ? "border-sky-300 bg-white text-slate-900 shadow-xl"
+                    : "border-white/20 bg-white/10 text-white hover:border-sky-200 hover:bg-white/15"
+                }`}
+              >
+                <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${activePurpose === "vision" ? "bg-sky-100 text-sky-700" : "bg-white/10 text-sky-200"}`}>
+                  <Lucide.Eye className="h-5 w-5" />
+                </span>
+                <span>
+                  <span className="block text-sm font-bold">Our Vision</span>
+                  <span className={`mt-1 block text-xs ${activePurpose === "vision" ? "text-slate-500" : "text-sky-100"}`}>Where we are heading</span>
+                </span>
+                <Lucide.ArrowRight className={`ml-auto h-4 w-4 transition-transform ${activePurpose === "vision" ? "translate-x-1 text-sky-600" : "text-sky-200 group-hover:translate-x-1"}`} />
+              </button>
+            </div>
+          </div>
+
+          <motion.div
+            key={activePurpose}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="rounded-3xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-md md:p-10"
+            role="tabpanel"
+          >
+            <div className="flex items-center gap-3 text-sky-200">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-400/15">
+                {activePurpose === "mission" ? <Lucide.Target className="h-5 w-5" /> : <Lucide.Eye className="h-5 w-5" />}
+              </span>
+              <span className="text-xs font-bold uppercase tracking-widest">
+                {purposeContent[activePurpose].eyebrow}
+              </span>
+            </div>
+            <h3 className="mt-8 max-w-2xl text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+              {purposeContent[activePurpose].title}
+            </h3>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-sky-100 md:text-lg">
+              {purposeContent[activePurpose].description}
+            </p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              {purposeContent[activePurpose].points.map((point) => (
+                <div key={point} className="rounded-2xl border border-white/15 bg-slate-950/20 p-4 text-sm font-medium leading-relaxed text-white">
+                  <Lucide.CheckCircle2 className="mb-3 h-5 w-5 text-sky-300" />
+                  {point}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* LEADERSHIP TEAM */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 text-center space-y-16">
+          <div className="space-y-4 max-w-3xl mx-auto">
+            <span className="text-xs font-bold tracking-widest uppercase text-sky-600">
+              Leadership Team
+            </span>
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+              Our Executive Board
+            </h2>
+            <p className="text-slate-600 text-sm md:text-base">
+              The engineers, designers, and consultants steering Bhardwaj
+              Innovations toward excellence.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 text-left">
+            {teamMembers.map((member, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-slate-50 shadow-sm transition-all duration-300 hover:border-sky-200 hover:shadow-xl"
+              >
+                <div className={`h-2 bg-linear-to-r ${member.gradient}`} />
+                <div className="space-y-5 p-6">
+                  <div className="relative flex h-44 w-full items-center justify-center overflow-hidden rounded-2xl bg-white text-sky-600 shadow-sm transition-transform duration-300 group-hover:scale-[1.02]">
+                    {member.image ? (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-linear-to-br from-slate-100 via-white to-sky-50">
+                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-sky-600 text-xl font-black text-white shadow-lg">
+                          {member.initials}
+                        </div>
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                          Add leadership photo
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="space-y-2">
+                    <h4 className="text-base font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                      {member.name}
+                    </h4>
+                    <span className="block text-xs font-semibold uppercase tracking-wider text-sky-600">
+                      {member.role}
+                    </span>
+                  </div>
+                  <p className="border-t border-slate-200 pt-4 text-xs leading-relaxed text-slate-500">
+                    {member.bio}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* CORE VALUES with GIF Animation */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 text-center space-y-16">
+          <div className="space-y-4 max-w-3xl mx-auto">
+            <span className="text-xs font-bold tracking-widest uppercase text-sky-600">
+              The Blueprint
+            </span>
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+              Our Core Values
+            </h2>
+            <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+              Every tracking unit we install, every algorithm we deploy, and
+              every customer relationship we nurture is driven by these
+              fundamental corporate principles.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {coreValues.map((val, i) => (
+              <div
+                key={i}
+                className="group bg-slate-50 border border-slate-100 hover:border-sky-200 rounded-2xl p-6 text-left space-y-4 hover:shadow-lg transition-all duration-300 relative overflow-hidden"
+              >
+                {/* Gradient accent bar */}
+                <div
+                  className={`absolute top-0 left-0 right-0 h-1 bg-linear-to-r ${val.gradient} opacity-0 group-hover:opacity-100 transition-opacity`}
+                ></div>
+                <div className="p-3 bg-white text-sky-600 h-12 w-12 rounded-xl flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+                  {renderIcon(val.icon)}
+                </div>
+                <h4 className="text-lg font-bold text-slate-900">
+                  {val.title}
+                </h4>
+                <p className="text-xs text-slate-500 leading-relaxed">
+                  {val.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* WHY CHOOSE US */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Section Header with Video Background */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="text-center space-y-6 mb-16"
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-600 text-xs font-bold uppercase tracking-widest">
+              <Lucide.Award className="h-4 w-4" />
+              Enterprise Standard
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+              Why Corporate Leaders Choose{" "}
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-500 to-blue-600">
+                Bhardwaj Innovations?
+              </span>
+            </h2>
+            <p className="text-slate-600 text-lg font-light leading-relaxed max-w-3xl mx-auto">
+              For over a decade, we have designed customized software
+              interfaces, AIS-compliant fleet sensors, and powerful smart
+              tracking units that deliver unmatched reliability in severe
+              industrial conditions.
+            </p>
+          </motion.div>
+
+          {/* Main Grid: Video + Reasons */}
+          <div className="grid lg:grid-cols-5 gap-10 items-start">
+            {/* Left: Video showcase (3 cols) */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-3 space-y-6"
+            >
+              {/* Main Video with overlay */}
+              <div className="relative h-105 w-full rounded-2xl overflow-hidden shadow-2xl group">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                >
+                  <source src="/media/realtime-tracking.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 via-slate-900/20 to-transparent z-10"></div>
+
+                {/* Floating stats cards over video */}
+                <div className="absolute top-6 left-6 z-20 flex gap-3">
+                  <div className="bg-white/90 backdrop-blur-md px-4 py-3 rounded-xl shadow-lg border border-white/20 animate-float">
+                    <div className="flex items-center gap-2">
+                      <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                      <span className="text-xs font-bold text-slate-800">
+                        LIVE TRACKING
+                      </span>
+                    </div>
+                    <p className="text-lg font-extrabold text-sky-600 mt-1">
+                      500+ Vehicles
+                    </p>
+                  </div>
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  className="absolute bottom-6 left-6 right-6 z-20 bg-white/95 backdrop-blur-md p-5 rounded-xl shadow-lg border border-slate-100"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="h-14 w-14 rounded-full bg-linear-to-br from-sky-500 to-blue-600 text-white flex items-center justify-center font-extrabold text-lg animate-pulse-glow shrink-0">
+                      99%
+                    </div>
+                    <div>
+                      <p className="text-base font-bold text-slate-900">
+                        Operational SLA Guarantee
+                      </p>
+                      <p className="text-xs text-slate-500 mt-0.5">
+                        Unmatched server uptime for heavy commercial fleets with
+                        24/7 monitoring.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Play button overlay */}
+                <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
+                    <Lucide.Play className="h-8 w-8 text-white ml-1" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Secondary video strip - 3 small videos */}
+              <div className="grid grid-cols-3 gap-4">
+                <div className="relative h-28 rounded-xl overflow-hidden shadow-md group cursor-pointer">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  >
+                    <source src="/media/circuit-board.mp4" type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-900/70 to-transparent"></div>
+                  <div className="absolute bottom-2 left-2 z-10">
+                    <p className="text-[10px] font-bold text-white uppercase tracking-wider">
+                      Hardware
+                    </p>
+                  </div>
+                </div>
+                <div className="relative h-28 rounded-xl overflow-hidden shadow-md group cursor-pointer">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  >
+                    <source src="/media/track-fleet.mp4" type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-900/70 to-transparent"></div>
+                  <div className="absolute bottom-2 left-2 z-10">
+                    <p className="text-[10px] font-bold text-white uppercase tracking-wider">
+                      Fleet Tracking
+                    </p>
+                  </div>
+                </div>
+                <div className="relative h-28 rounded-xl overflow-hidden shadow-md group cursor-pointer">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  >
+                    <source
+                      src="/media/track-everything.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-900/70 to-transparent"></div>
+                  <div className="absolute bottom-2 left-2 z-10">
+                    <p className="text-[10px] font-bold text-white uppercase tracking-wider">
+                      Full Coverage
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right: Reason cards with icons (2 cols) */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="lg:col-span-2 space-y-5"
+            >
+              {[
+                {
+                  icon: "Award",
+                  title: "10+ Years Experience",
+                  desc: "Deep mastery in telemetry algorithms, custom PCB integration, and regulatory transport mandates.",
+                  color: "sky",
+                },
+                {
+                  icon: "Settings",
+                  title: "Cutting-Edge Hardware",
+                  desc: "High-speed 4G antennas, intelligent sleep modes, and OTA firmware updates.",
+                  color: "blue",
+                },
+                {
+                  icon: "Cpu",
+                  title: "Custom Software",
+                  desc: "Fully proprietary platforms with customized map grids, reports, and instant integrations.",
+                  color: "indigo",
+                },
+                {
+                  icon: "Users",
+                  title: "24/7 Support Team",
+                  desc: "Direct support with seasoned telecom engineers for real-time troubleshooting.",
+                  color: "violet",
+                },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.15 }}
+                  whileHover={{ x: 6, scale: 1.02 }}
+                  className="flex gap-4 p-5 rounded-2xl bg-white border border-slate-100 hover:border-sky-200 hover:shadow-lg transition-all duration-300 cursor-pointer group"
+                >
+                  <div
+                    className={`p-3 bg-${item.color}-50 text-${item.color}-600 h-12 w-12 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-all duration-300 shadow-sm`}
+                  >
+                    {renderIcon(item.icon, "h-6 w-6")}
+                  </div>
+                  <div>
+                    <h4 className="text-base font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                      {item.title}
+                    </h4>
+                    <p className="text-sm text-slate-500 mt-1 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+
+              {/* Animated stats bar */}
+              <div className="bg-linear-to-r from-slate-900 to-slate-800 rounded-2xl p-6 shadow-xl">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center">
+                    <p className="text-2xl font-extrabold text-sky-400">
+                      500+
+                    </p>
+                    <p className="text-xs text-slate-400 mt-1">Projects Done</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl font-extrabold text-sky-400">
+                      100+
+                    </p>
+                    <p className="text-xs text-slate-400 mt-1">Happy Clients</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl font-extrabold text-sky-400">
+                      99%
+                    </p>
+                    <p className="text-xs text-slate-400 mt-1">Uptime SLA</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl font-extrabold text-sky-400">
+                      24/7
+                    </p>
+                    <p className="text-xs text-slate-400 mt-1">Support Hours</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* PARTNERS with Video Background */}
+      <section className="relative py-20 overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover opacity-5"
+          >
+            <source src="/media/track-everything.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-linear-to-b from-slate-50/95 to-white/95"></div>
+        </div>
+
+        {/* =========================
+    WHAT WE DO
+========================= */}
+        <section className="relative py-24 bg-slate-50 overflow-hidden">
+          {/* Background Decoration */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100/40 rounded-full blur-3xl z-0" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-slate-200/50 rounded-full blur-3xl z-0" />
+
+          <div className="relative z-10 max-w-7xl mx-auto px-6">
+            {/* Section Header */}
+            <div className="max-w-3xl mx-auto text-center">
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-sky-100 text-sky-600 text-xs font-bold uppercase tracking-widest">
+                What We Do
+              </span>
+
+              <h2 className="mt-5 text-3xl md:text-5xl font-black text-slate-900 tracking-tight">
+                Technology That Drives
+                <span className="text-sky-600"> Operations</span>
+              </h2>
+
+              <p className="mt-6 text-slate-600 text-base md:text-lg leading-8">
+                We deliver integrated technology, hardware, and software
+                solutions that help organizations improve visibility,
+                efficiency, security, automation, and decision-making.
+              </p>
+            </div>
+
+            {/* Capability Cards */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+              {whatWeDo.map((item, index) => (
+                <div
+                  key={item.title}
+                  className="
+            group
+            relative
+            bg-white
+            border
+            border-slate-100
+            rounded-2xl
+            p-7
+            shadow-sm
+            hover:shadow-xl
+            hover:border-sky-200
+            hover:-translate-y-2
+            transition-all
+            duration-500
+            flex
+            flex-col
+          "
+                >
+                  {/* Number */}
+                  <div
+                    className="
+            absolute
+            top-6
+            right-6
+            text-5xl
+            font-black
+            text-slate-100
+            group-hover:text-sky-50
+            transition-colors
+          "
+                  >
+                    0{index + 1}
+                  </div>
+
+                  {/* Icon / Number Circle */}
+                  <div
+                    className="
+            relative
+            w-12
+            h-12
+            rounded-xl
+            bg-sky-50
+            text-sky-600
+            flex
+            items-center
+            justify-center
+            font-black
+            text-lg
+            group-hover:bg-sky-600
+            group-hover:text-white
+            transition-all
+            duration-300
+          "
+                  >
+                    {index + 1}
+                  </div>
+
+                  {/* Title */}
+                  <h3
+                    className="
+            mt-6
+            text-xl
+            font-black
+            text-slate-900
+            group-hover:text-sky-600
+            transition-colors
+          "
+                  >
+                    {item.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p
+                    className="
+            mt-4
+            text-sm
+            text-slate-500
+            leading-7
+          "
+                  >
+                    {item.description}
+                  </p>
+
+                  {/* Points */}
+                  <div className="mt-6 space-y-3">
+                    {item.points.map((point) => (
+                      <div key={point} className="flex items-start gap-3">
+                        <span
+                          className="
+                  mt-1
+                  w-5
+                  h-5
+                  rounded-full
+                  bg-sky-50
+                  text-sky-600
+                  flex
+                  items-center
+                  justify-center
+                  text-xs
+                  font-bold
+                  shrink-0
+                "
+                        >
+                          ✓
+                        </span>
+
+                        <span
+                          className="
+                  text-sm
+                  text-slate-600
+                  leading-6
+                "
+                        >
+                          {point}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Explore Link */}
+                  <Link
+                    href={item.link}
+                    className="
+              mt-7
+              pt-5
+              border-t
+              border-slate-100
+              flex
+              items-center
+              justify-between
+              text-sm
+              font-bold
+              text-slate-700
+              group-hover:text-sky-600
+              transition-colors
+            "
+                  >
+                    <span>Explore Solutions</span>
+
+                    <span
+                      className="
+              text-lg
+              group-hover:translate-x-2
+              transition-transform
+              duration-300
+            "
+                    >
+                      →
+                    </span>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center space-y-12">
+          <div className="space-y-3">
+            <span className="text-xs font-bold tracking-widest uppercase text-sky-600">
+              Industries We Serve
+            </span>
+            <h2 className="text-2xl font-bold text-slate-900">
+              Our Trusted Integrations
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {partners.map((partner, i) => (
+              <div
+                key={i}
+                className="bg-white border border-slate-100 p-6 rounded-xl shadow-sm text-center flex flex-col justify-center items-center space-y-3 hover:shadow-lg hover:border-sky-200 transition-all duration-300 group hover:-translate-y-1"
+              >
+                {/* Industry Name */}
+                <span className="text-lg font-black text-slate-800 tracking-tight font-sans group-hover:text-sky-600 transition-colors">
+                  {partner.name}
+                </span>
+
+                {/* Industry Description */}
+                <span className="text-xs text-slate-500 font-medium leading-relaxed">
+                  {partner.desc}
+                </span>
+
+                {/* Organizations / Companies */}
+                {/* Organizations / Companies */}
+                <div className="w-full pt-5 space-y-2">
+                  {partner.organizations.map((organization) => (
+                    <Link
+                      key={organization.slug}
+                      href={`/partners/${organization.slug}`}
+                      className="
+        group/company
+        flex
+        items-center
+        justify-between
+        w-full
+        px-4
+        py-3
+        rounded-xl
+        bg-slate-50
+        border
+        border-slate-100
+        text-left
+        transition-all
+        duration-300
+        hover:bg-sky-600
+        hover:border-sky-600
+        hover:shadow-md
+        hover:-translate-y-0.5
+      "
+                    >
+                      {/* Company Name */}
+                      <span
+                        className="
+          text-sm
+          font-semibold
+          text-slate-700
+          group-hover/company:text-white
+          transition-colors
+          duration-300
+        "
+                      >
+                        {organization.name}
+                      </span>
+
+                      {/* Arrow */}
+                      <span
+                        className="
+          text-slate-400
+          group-hover/company:text-white
+          group-hover/company:translate-x-1
+          transition-all
+          duration-300
+        "
+                      >
+                        →
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section with Video */}
+      <section className="relative py-24 bg-slate-950 text-white overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover opacity-20"
+          >
+            <source src="/media/realtime-tracking.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-linear-to-b from-slate-950 via-slate-950/80 to-slate-950"></div>
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-8">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+            Ready to Transform Your Operations?
+          </h2>
+          <p className="text-slate-300 text-base md:text-lg font-light max-w-2xl mx-auto">
+            Partner with Bhardwaj Innovations for enterprise-grade telemetry
+            solutions. Our engineering team is ready to architect your next
+            fleet management or asset tracking deployment.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            <Link
+              href="/contact"
+              className="px-8 py-3.5 bg-sky-600 hover:bg-sky-500 text-white text-sm font-bold rounded-xl transition-all shadow-lg hover:shadow-sky-500/25 hover:-translate-y-0.5"
+            >
+              Get In Touch
+            </Link>
+            <Link
+              href="/products"
+              className="px-8 py-3.5 border border-slate-600 hover:border-sky-400 text-white text-sm font-bold rounded-xl transition-all hover:-translate-y-0.5"
+            >
+              Explore Products
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
