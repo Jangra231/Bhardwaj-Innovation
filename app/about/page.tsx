@@ -76,71 +76,7 @@ export default function AboutPage() {
     },
   ];
 
-  const whatWeDo = [
-    {
-      title: "IoT & Hardware Solutions",
-      description:
-        "We manufacture and integrate advanced IoT hardware solutions designed for transport, logistics, fleet operations, and connected business environments.",
-      points: [
-        "IoT hardware solutions for transport and logistics",
-        "AIS-140 compliant vehicle tracking systems",
-        "Smart IoT device integration",
-      ],
-      link: "/products",
-    },
-
-    {
-      title: "Security & Logistics Hardware",
-      description:
-        "We provide reliable physical security and logistics solutions designed to improve cargo protection, asset security, and supply chain operations.",
-      points: [
-        "High-security metal container seals",
-        "Logistics locking solutions",
-        "Container and cargo security solutions",
-      ],
-      link: "/products",
-    },
-
-    {
-      title: "Fleet & Logistics Technology",
-      description:
-        "Our technology solutions help organizations improve fleet visibility, transportation operations, warehouse management, and logistics efficiency.",
-      points: [
-        "GPS tracking and fleet monitoring",
-        "Transport Management Systems (TMS)",
-        "Logistics software development",
-        "Warehouse and inventory management",
-      ],
-      link: "/products",
-    },
-
-    {
-      title: "Digital Transformation",
-      description:
-        "We develop scalable digital solutions that automate business processes, improve operational efficiency, and help organizations transition from manual workflows to digital platforms.",
-      points: [
-        "Enterprise web application development",
-        "Mobile application development",
-        "Process automation",
-        "Digital transformation solutions",
-      ],
-      link: "/services",
-    },
-
-    {
-      title: "AI, Analytics & Technology Consulting",
-      description:
-        "We combine software development, artificial intelligence, analytics, and technology consulting to help businesses make better decisions and build smarter digital operations.",
-      points: [
-        "AI-powered analytics",
-        "Business intelligence solutions",
-        "Advanced reporting and dashboards",
-        "Custom software development",
-        "Technology consulting",
-      ],
-      link: "/services",
-    },
-  ];
+  
 
   const whoWeAre = {
     label: "Who We Are",
@@ -160,7 +96,7 @@ export default function AboutPage() {
 
   const teamMembers = [
     {
-      name: "Sh. Shiv Shankar Ji",
+      name: "Sh. Shiv Shankar",
       role: "CEO & Founder",
       bio: "Guiding the company’s purpose, long-term relationships, and responsible growth across connected operations.",
       icon: "Crown",
@@ -174,8 +110,8 @@ export default function AboutPage() {
       gradient: "from-sky-500 to-blue-600",
     },
     {
-      name: "Ankit Bhardwaj",
-      role: "Chief Financial Officer",
+      name: "Ankit Sharma",
+      role: "CFO",
       bio: "Building disciplined financial systems that support sustainable delivery, compliance, and customer trust.",
       icon: "ChartNoAxesCombined",
       gradient: "from-emerald-500 to-teal-600",
@@ -186,7 +122,6 @@ export default function AboutPage() {
       bio: "Driving embedded systems, telemetry architecture, secure integrations, and reliable product engineering.",
       icon: "Cpu",
       gradient: "from-indigo-500 to-violet-600",
-      initials: "VB",
       image: "", // Add a photo path such as /media/leadership/vikas-bhardwaj.jpg
     },
     {
@@ -195,7 +130,6 @@ export default function AboutPage() {
       bio: "Connecting deployments, support, compliance, and customer teams so every solution works in the field.",
       icon: "UsersRound",
       gradient: "from-rose-500 to-pink-600",
-      initials: "OL",
       image: "", // Add a photo path such as /media/leadership/operations-leadership.jpg
     },
   ];
@@ -726,9 +660,7 @@ export default function AboutPage() {
                       />
                     ) : (
                       <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-linear-to-br from-slate-100 via-white to-sky-50">
-                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-sky-600 text-xl font-black text-white shadow-lg">
-                          {member.initials}
-                        </div>
+                        
                         <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
                           Add leadership photo
                         </span>
@@ -847,7 +779,7 @@ export default function AboutPage() {
                   playsInline
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 >
-                  <source src="/media/realtime-tracking.mp4" type="video/mp4" />
+                  <source src="/media/Hero.mp4" type="video/mp4" />
                 </video>
                 <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 via-slate-900/20 to-transparent z-10"></div>
 
@@ -1067,193 +999,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-linear-to-b from-slate-50/95 to-white/95"></div>
         </div>
 
-        {/* =========================
-    WHAT WE DO
-========================= */}
-        <section className="relative py-24 bg-slate-50 overflow-hidden">
-          {/* Background Decoration */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100/40 rounded-full blur-3xl z-0" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-slate-200/50 rounded-full blur-3xl z-0" />
-
-          <div className="relative z-10 max-w-7xl mx-auto px-6">
-            {/* Section Header */}
-            <div className="max-w-3xl mx-auto text-center">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-sky-100 text-sky-600 text-xs font-bold uppercase tracking-widest">
-                What We Do
-              </span>
-
-              <h2 className="mt-5 text-3xl md:text-5xl font-black text-slate-900 tracking-tight">
-                Technology That Drives
-                <span className="text-sky-600"> Operations</span>
-              </h2>
-
-              <p className="mt-6 text-slate-600 text-base md:text-lg leading-8">
-                We deliver integrated technology, hardware, and software
-                solutions that help organizations improve visibility,
-                efficiency, security, automation, and decision-making.
-              </p>
-            </div>
-
-            {/* Capability Cards */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
-              {whatWeDo.map((item, index) => (
-                <div
-                  key={item.title}
-                  className="
-            group
-            relative
-            bg-white
-            border
-            border-slate-100
-            rounded-2xl
-            p-7
-            shadow-sm
-            hover:shadow-xl
-            hover:border-sky-200
-            hover:-translate-y-2
-            transition-all
-            duration-500
-            flex
-            flex-col
-          "
-                >
-                  {/* Number */}
-                  <div
-                    className="
-            absolute
-            top-6
-            right-6
-            text-5xl
-            font-black
-            text-slate-100
-            group-hover:text-sky-50
-            transition-colors
-          "
-                  >
-                    0{index + 1}
-                  </div>
-
-                  {/* Icon / Number Circle */}
-                  <div
-                    className="
-            relative
-            w-12
-            h-12
-            rounded-xl
-            bg-sky-50
-            text-sky-600
-            flex
-            items-center
-            justify-center
-            font-black
-            text-lg
-            group-hover:bg-sky-600
-            group-hover:text-white
-            transition-all
-            duration-300
-          "
-                  >
-                    {index + 1}
-                  </div>
-
-                  {/* Title */}
-                  <h3
-                    className="
-            mt-6
-            text-xl
-            font-black
-            text-slate-900
-            group-hover:text-sky-600
-            transition-colors
-          "
-                  >
-                    {item.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p
-                    className="
-            mt-4
-            text-sm
-            text-slate-500
-            leading-7
-          "
-                  >
-                    {item.description}
-                  </p>
-
-                  {/* Points */}
-                  <div className="mt-6 space-y-3">
-                    {item.points.map((point) => (
-                      <div key={point} className="flex items-start gap-3">
-                        <span
-                          className="
-                  mt-1
-                  w-5
-                  h-5
-                  rounded-full
-                  bg-sky-50
-                  text-sky-600
-                  flex
-                  items-center
-                  justify-center
-                  text-xs
-                  font-bold
-                  shrink-0
-                "
-                        >
-                          ✓
-                        </span>
-
-                        <span
-                          className="
-                  text-sm
-                  text-slate-600
-                  leading-6
-                "
-                        >
-                          {point}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Explore Link */}
-                  <Link
-                    href={item.link}
-                    className="
-              mt-7
-              pt-5
-              border-t
-              border-slate-100
-              flex
-              items-center
-              justify-between
-              text-sm
-              font-bold
-              text-slate-700
-              group-hover:text-sky-600
-              transition-colors
-            "
-                  >
-                    <span>Explore Solutions</span>
-
-                    <span
-                      className="
-              text-lg
-              group-hover:translate-x-2
-              transition-transform
-              duration-300
-            "
-                    >
-                      →
-                    </span>
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+       
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center space-y-12">
           <div className="space-y-3">

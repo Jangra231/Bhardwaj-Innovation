@@ -17,7 +17,6 @@ import { getUniqueServiceMedia } from "@/lib/unique-service-media";
 import UnifiedOperationsConsole from "@/components/UnifiedOperationsConsole";
 import AccessibleServicesProductsSection from "@/components/AccessibleServicesProductsSection";
 
-
 // --- Reusable icon renderer ---
 const renderIcon = (name: string, className = "h-6 w-6 text-sky-500") => {
   const IconComponent = (
@@ -114,12 +113,12 @@ const AnimatedText = ({
   }, [displayText, isDeleting, index, words]);
 
   return (
-  <span className={`inline-block w-[10ch] whitespace-nowrap ${className ?? ""}`}>
-    {displayText || "\u00A0"}
-  </span>
-);
-
-
+    <span
+      className={`inline-block w-[10ch] whitespace-nowrap ${className ?? ""}`}
+    >
+      {displayText || "\u00A0"}
+    </span>
+  );
 };
 
 // --- Animated Counter Component ---
@@ -380,27 +379,24 @@ export default function HomePage() {
       />
 
       {/* 1. HERO BANNER */}
-      <section className="relative min-h-screen flex items-center justify-center text-white overflow-hidden bg-slate-950 grid-bg">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white text-slate-950 grid-bg">
         {/* Floating particles */}
         <FloatingParticles />
 
         <motion.div
-          className="absolute inset-0 z-0"
+          className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
           style={{ scale: heroScale }}
+          aria-hidden="true"
         >
-          <img
-            src="https://images.unsplash.com/photo-1524522173746-f628baad3644?auto=format&fit=crop&q=80&w=1600"
-            alt="Smart GPS Fleet Technology"
-            className="w-full h-full object-cover object-center opacity-30"
-          />
-          <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-900/90 to-transparent"></div>
-          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-white" />
+          <div className="absolute right-0 top-0 h-full w-full bg-linear-to-br from-sky-50/80 via-white to-white lg:w-3/5" />
+          <div className="absolute bottom-0 left-0 h-1/2 w-full bg-linear-to-t from-slate-50/80 to-transparent" />
         </motion.div>
 
         {/* Animated gradient orbs */}
-        <div className="absolute top-20 right-20 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute top-20 right-20 w-96 h-96 bg-sky-400/70 rounded-full blur-3xl animate-float"></div>
         <div
-          className="absolute bottom-20 left-20 w-72 h-72 bg-blue-600/5 rounded-full blur-3xl animate-float"
+          className="absolute bottom-20 left-20 w-72 h-72 bg-blue-100/60 rounded-full blur-3xl animate-float"
           style={{ animationDelay: "2s" }}
         ></div>
 
@@ -415,7 +411,7 @@ export default function HomePage() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1, duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-sm font-semibold tracking-wide animate-pulse-glow"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-sky-700 text-sm font-semibold tracking-wide shadow-sm animate-pulse-glow"
             >
               <span className="flex h-2 w-2 rounded-full bg-sky-400 animate-ping"></span>
               Enterprise IoT & Telematics Leaders
@@ -424,8 +420,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="min-h-[5.1em] md:min-h-[4.2em] lg:min-h-[4.2em] text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight neon-text"
-
+              className="min-h-[5.1em] text-4xl md:min-h-[4.2em] md:text-5xl lg:min-h-[4.2em] lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-tight"
             >
               Smart{" "}
               <AnimatedText
@@ -442,10 +437,12 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="text-slate-300 text-lg md:text-xl font-light leading-relaxed max-w-xl"
+              className="text-slate-600 text-lg md:text-xl font-light leading-relaxed max-w-xl"
             >
-              Bhardwaj Innovations is a technology-driven firm specializing in intelligent software development for transport, agri-procurement, supply chain and logistics IoT hardware manufacturing. 
-
+              Advanced GPS Tracking, Smart Customized Software, Fleet
+              Management, and secure IoT Solutions tailored to monitor,
+              optimize, and secure your high-value assets and fleet vehicles
+              seamlessly.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -484,9 +481,9 @@ export default function HomePage() {
               className="absolute -inset-2 rounded-2xl bg-linear-to-r from-sky-500 via-blue-500 to-cyan-500 opacity-20 blur-2xl animate-pulse"
               style={{ animationDuration: "3s" }}
             ></div>
-            <div className="relative bg-slate-900/80 backdrop-blur-xl border border-slate-800 p-5 rounded-2xl shadow-2xl max-w-md ml-auto text-slate-300 space-y-4 overflow-hidden gradient-border">
+            <div className="relative bg-white/95 backdrop-blur-xl border border-slate-200 p-5 rounded-2xl shadow-2xl shadow-slate-200/70 max-w-md ml-auto text-slate-700 space-y-4 overflow-hidden gradient-border transition-transform duration-300 hover:-translate-y-1 hover:shadow-sky-200/60">
               {/* Browser frame */}
-              <div className="flex items-center gap-2 pb-3 border-b border-slate-800">
+              <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
                 <div className="flex gap-1.5">
                   <div
                     className="w-3 h-3 rounded-full bg-red-500/80 animate-pulse"
@@ -501,7 +498,7 @@ export default function HomePage() {
                     style={{ animationDelay: "0.6s" }}
                   ></div>
                 </div>
-                <div className="ml-auto flex items-center gap-1.5 text-[10px] text-slate-500 bg-slate-800 px-3 py-1 rounded-full">
+                <div className="ml-auto flex items-center gap-1.5 text-[10px] text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
                   <Lucide.Lock className="h-2.5 w-2.5" />
                   dashboard.bhardwajinnovations.com
                 </div>
@@ -516,7 +513,7 @@ export default function HomePage() {
                   playsInline
                   className="w-full h-48 object-cover"
                 >
-                  <source src="/media/realtime-tracking.mp4" type="video/mp4" />
+                  <source src="/media/Hero.mp4" type="video/mp4" />
                 </video>
                 <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 to-transparent"></div>
                 <div className="absolute top-2 right-2 flex items-center gap-1 px-2 py-0.5 bg-red-500/80 backdrop-blur-sm rounded-full">
@@ -666,7 +663,6 @@ export default function HomePage() {
 
       <UnifiedOperationsConsole />
 
-
       {/* Logo Marquee */}
       <LogoMarquee />
 
@@ -692,9 +688,9 @@ export default function HomePage() {
                 muted
                 loop
                 playsInline
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover p-1.5 rounded-2xl"
               >
-                <source src="/media/realtime-tracking.mp4" type="video/mp4" />
+                <source src="/media/platform-showcase.mp4" type="video/mp4" />
               </video>
             </motion.div>
 
@@ -710,7 +706,7 @@ export default function HomePage() {
                 Platform Showcase
               </span>
               <h3 className="text-3xl font-extrabold text-white tracking-tight">
-                One Platform, Complete Control
+                Ready to Optimize Your Fleet & Assets?
               </h3>
               <p className="text-slate-400 text-base leading-relaxed">
                 By connecting your assets, processes and people on one platform,
@@ -784,55 +780,6 @@ export default function HomePage() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* 8. CALL TO ACTION */}
-      <section className="relative py-24 bg-slate-950 text-white overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-          >
-            <source src="/media/realtime-tracking.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-linear-to-r from-slate-950/85 via-slate-950/75 to-slate-950/85"></div>
-        </div>
-
-        <FloatingParticles />
-
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center space-y-8">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-8"
-          >
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
-              Ready to Optimize Your Fleet & Assets?
-            </h2>
-            <p className="text-slate-300 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-              Get in touch with our solutions design group today for a
-              customized proposal, physical hardware demo, and software pilot
-              integration.
-            </p>
-            <div className="pt-4 flex justify-center gap-4">
-              <Link
-                href="/contact"
-                className="px-8 py-4 bg-sky-600 hover:bg-sky-500 transition-all text-white font-bold rounded-xl shadow-lg shadow-sky-500/20 hover:scale-[1.03] active:scale-[0.98] cursor-pointer flex items-center gap-2 group relative overflow-hidden"
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  Contact Our Team
-                  <Lucide.ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                </span>
-                <div className="absolute inset-0 bg-linear-to-r from-sky-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </Link>
-            </div>
-          </motion.div>
         </div>
       </section>
     </div>

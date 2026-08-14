@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ComponentType, type KeyboardEvent } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ComponentType, type KeyboardEvent, type PointerEvent as ReactPointerEvent } from "react";
 import Link from "next/link";
 import * as Lucide from "lucide-react";
 import { motion } from "motion/react";
@@ -62,6 +62,13 @@ export default function AccessibleServicesProductsSection() {
   const hoverPausedRef = useRef(false);
   const manualTransitionRef = useRef(false);
   const transitionTimeoutRef = useRef<number | null>(null);
+  const dragRef = useRef({
+    active: false,
+    pointerId: -1,
+    startX: 0,
+    startOffset: 0,
+    moved: false,
+  });
   const itemCount = ITEMS.length;
   const activeEntry = ITEMS[activeIndex] ?? ITEMS[0];
 
@@ -177,6 +184,77 @@ export default function AccessibleServicesProductsSection() {
     }, 440);
   };
 
+  const updateActiveIndexFromOffset = (offset: number) => {
+    const step = stepRef.current;
+    if (!step || !itemCount) return;
+    const nextIndex = Math.floor(offset / step) % itemCount;
+    if (nextIndex !== activeIndexRef.current) {
+      activeIndexRef.current = nextIndex;
+      setActiveIndex(nextIndex);
+    }
+  };
+
+  const normalizeDragOffset = (offset: number) => {
+    const loopDistance = stepRef.current * itemCount;
+    if (!loopDistance) return offset;
+    const normalized = ((offset - loopDistance) % loopDistance + loopDistance) % loopDistance;
+    return loopDistance + normalized;
+  };
+
+  const snapToNearestCard = () => {
+    const step = stepRef.current;
+    if (!step) return;
+    moveToIndex(Math.round(offsetRef.current / step) % itemCount);
+  };
+
+  const handlePointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === "mouse" || !stepRef.current) return;
+    dragRef.current = {
+      active: true,
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startOffset: offsetRef.current,
+      moved: false,
+    };
+    manualTransitionRef.current = true;
+    if (transitionTimeoutRef.current) window.clearTimeout(transitionTimeoutRef.current);
+    event.currentTarget.setPointerCapture(event.pointerId);
+    setTrackTransform(offsetRef.current, false);
+  };
+
+  const handlePointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+    if (!drag.active || drag.pointerId !== event.pointerId) return;
+
+    const delta = drag.startX - event.clientX;
+    if (Math.abs(delta) > 6) drag.moved = true;
+    if (!drag.moved) return;
+
+    event.preventDefault();
+    offsetRef.current = normalizeDragOffset(drag.startOffset + delta);
+    updateActiveIndexFromOffset(offsetRef.current);
+    setTrackTransform(offsetRef.current, false);
+  };
+
+  const handlePointerEnd = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+    if (!drag.active || drag.pointerId !== event.pointerId) return;
+
+    dragRef.current.active = false;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+    snapToNearestCard();
+  };
+
+  const handleCarouselClickCapture = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (dragRef.current.moved) {
+      event.preventDefault();
+      event.stopPropagation();
+      dragRef.current.moved = false;
+    }
+  };
+
   const indicatorIndex = Math.min(
     INDICATOR_COUNT - 1,
     Math.floor((activeIndex / itemCount) * INDICATOR_COUNT),
@@ -228,7 +306,7 @@ export default function AccessibleServicesProductsSection() {
             operational security, and intelligent asset management.
           </p>
           <p className="sr-only" aria-live="polite">
-            {isPlaying
+            On touch devices, swipe left or right to browse the cards. {isPlaying
               ? isHoverPaused
                 ? "Services and products movement temporarily paused while hovered."
                 : "Services and products movement is playing."
@@ -246,6 +324,12 @@ export default function AccessibleServicesProductsSection() {
             onMouseEnter={() => setIsHoverPaused(true)}
             onMouseLeave={() => setIsHoverPaused(false)}
             onFocusCapture={() => setIsHoverPaused(true)}
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerEnd}
+            onPointerCancel={handlePointerEnd}
+            onClickCapture={handleCarouselClickCapture}
+            style={{ touchAction: "pan-y" }}
             onBlurCapture={(event) => {
               if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
                 setIsHoverPaused(false);

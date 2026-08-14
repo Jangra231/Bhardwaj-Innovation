@@ -33,6 +33,7 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const isHome = pathname === "/";
   const normalizedRoute = pathname.replace(/^\//, "").split("/")[0] || "home";
 
   const navLinks = [
@@ -52,11 +53,13 @@ export default function Navbar() {
     <header className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
       isScrolled
         ? "bg-slate-950/95 backdrop-blur-md border-b border-slate-900 shadow-lg py-0"
-        : "bg-transparent border-transparent py-2"
+        : isHome
+          ? "bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm py-0"
+          : "bg-transparent border-transparent py-2"
     }`}>
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" onClick={handleLinkClick} className="cursor-pointer">
-          <Logo light={true} />
+          <Logo light={isScrolled || !isHome} />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -76,8 +79,12 @@ export default function Navbar() {
                     onClick={() => setProductsDropdown(!productsDropdown)}
                     className={`text-sm font-semibold tracking-wide transition-all relative py-2 cursor-pointer flex items-center gap-1 bg-transparent border-none outline-none ${
                       isLinkActive
-                        ? "text-white font-bold"
-                        : "text-slate-300 hover:text-white"
+                        ? isScrolled || !isHome
+                          ? "text-white font-bold"
+                          : "text-slate-950 font-bold"
+                        : isScrolled || !isHome
+                          ? "text-slate-300 hover:text-white"
+                          : "text-slate-600 hover:text-slate-950"
                     }`}
                   >
                     {link.label}
@@ -89,7 +96,11 @@ export default function Navbar() {
 
                   {/* Dropdown Menu - appears on click */}
                   {productsDropdown && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl py-2 animate-fadeIn">
+                    <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 rounded-xl border py-2 shadow-2xl animate-fadeIn ${
+                      isScrolled || !isHome
+                        ? "bg-slate-900 border-slate-800"
+                        : "bg-white border-slate-200"
+                    }`}>
                       <Link
                         href="/products"
                         onClick={handleLinkClick}
@@ -128,8 +139,12 @@ export default function Navbar() {
                 onClick={handleLinkClick}
                 className={`text-sm font-semibold tracking-wide transition-all relative py-2 cursor-pointer ${
                   isLinkActive
-                    ? "text-white font-bold"
-                    : "text-slate-300 hover:text-white"
+                    ? isScrolled || !isHome
+                      ? "text-white font-bold"
+                      : "text-slate-950 font-bold"
+                    : isScrolled || !isHome
+                      ? "text-slate-300 hover:text-white"
+                      : "text-slate-600 hover:text-slate-950"
                 }`}
               >
                 {link.label}
@@ -146,7 +161,7 @@ export default function Navbar() {
             href="/contact"
             onClick={handleLinkClick}
             className={`px-5 py-2.5 transition-all text-xs font-bold rounded-xl cursor-pointer shadow-md flex items-center gap-1.5 ${
-              isScrolled
+              isScrolled || isHome
                 ? "bg-sky-600 hover:bg-sky-500 text-white shadow-sky-500/10"
                 : "bg-white/10 hover:bg-white/20 text-white border border-white/20 shadow-none"
             }`}
@@ -157,7 +172,11 @@ export default function Navbar() {
 
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg transition-colors focus:outline-none text-white hover:bg-white/10"
+          className={`md:hidden p-2 rounded-lg transition-colors focus:outline-none ${
+            isScrolled || !isHome
+              ? "text-white hover:bg-white/10"
+              : "text-slate-700 hover:bg-slate-100"
+          }`}
         >
           {mobileMenuOpen ? (
             <Lucide.X className="h-6 w-6" />
@@ -168,7 +187,11 @@ export default function Navbar() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-900 bg-slate-950/95 backdrop-blur-lg absolute top-full left-0 right-0 py-6 px-6 shadow-xl flex flex-col gap-4 animate-fadeIn">
+        <div className={`md:hidden border-t backdrop-blur-lg absolute top-full left-0 right-0 py-6 px-6 shadow-xl flex flex-col gap-4 animate-fadeIn ${
+          isScrolled || !isHome
+            ? "border-slate-900 bg-slate-950/95"
+            : "border-slate-200 bg-white/95"
+        }`}>
           {navLinks.map((link) => {
             const linkRoute = link.href === "/" ? "home" : link.href.replace(/^\//, "");
             const isLinkActive = normalizedRoute === linkRoute;
@@ -180,8 +203,12 @@ export default function Navbar() {
                   onClick={handleLinkClick}
                   className={`w-full text-left py-3 px-4 rounded-xl text-sm font-bold transition-all ${
                     isLinkActive
-                      ? "bg-slate-900 text-sky-400"
-                      : "text-slate-300 hover:bg-slate-900 hover:text-white"
+                      ? isScrolled || !isHome
+                        ? "bg-slate-900 text-sky-400"
+                        : "bg-sky-50 text-sky-700"
+                      : isScrolled || !isHome
+                        ? "text-slate-300 hover:bg-slate-900 hover:text-white"
+                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"
                   }`}
                 >
                   {link.label}
