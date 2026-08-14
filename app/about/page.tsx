@@ -95,7 +95,7 @@ export default function AboutPage() {
 
   const teamMembers = [
     {
-      name: "Sh. Shiv Shankar Ji",
+      name: "Sh. Shiv Shankar ",
       role: "CEO & Founder",
       bio: "Guiding the company’s purpose, long-term relationships, and responsible growth across connected operations.",
       icon: "Crown",
@@ -109,8 +109,8 @@ export default function AboutPage() {
       gradient: "from-sky-500 to-blue-600",
     },
     {
-      name: "Ankit Bhardwaj",
-      role: "Chief Financial Officer",
+      name: "Ankit Sharma",
+      role: "CFO",
       bio: "Building disciplined financial systems that support sustainable delivery, compliance, and customer trust.",
       icon: "ChartNoAxesCombined",
       gradient: "from-emerald-500 to-teal-600",
@@ -121,7 +121,7 @@ export default function AboutPage() {
       bio: "Driving embedded systems, telemetry architecture, secure integrations, and reliable product engineering.",
       icon: "Cpu",
       gradient: "from-indigo-500 to-violet-600",
-      initials: "VB",
+     
       image: "", // Add a photo path such as /media/leadership/vikas-bhardwaj.jpg
     },
     {
@@ -130,7 +130,7 @@ export default function AboutPage() {
       bio: "Connecting deployments, support, compliance, and customer teams so every solution works in the field.",
       icon: "UsersRound",
       gradient: "from-rose-500 to-pink-600",
-      initials: "OL",
+      
       image: "", // Add a photo path such as /media/leadership/operations-leadership.jpg
     },
   ];
@@ -597,9 +597,7 @@ export default function AboutPage() {
                       />
                     ) : (
                       <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-linear-to-br from-slate-100 via-white to-sky-50">
-                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-sky-600 text-xl font-black text-white shadow-lg">
-                          {member.initials}
-                        </div>
+                        
                         <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
                           Add leadership photo
                         </span>
