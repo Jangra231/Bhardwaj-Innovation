@@ -76,7 +76,6 @@ export default function AboutPage() {
     },
   ];
 
-  
 
   const whoWeAre = {
     label: "Who We Are",
@@ -96,7 +95,7 @@ export default function AboutPage() {
 
   const teamMembers = [
     {
-      name: "Sh. Shiv Shankar",
+      name: "Sh. Shiv Shankar Ji",
       role: "CEO & Founder",
       bio: "Guiding the company’s purpose, long-term relationships, and responsible growth across connected operations.",
       icon: "Crown",
@@ -110,8 +109,8 @@ export default function AboutPage() {
       gradient: "from-sky-500 to-blue-600",
     },
     {
-      name: "Ankit Sharma",
-      role: "CFO",
+      name: "Ankit Bhardwaj",
+      role: "Chief Financial Officer",
       bio: "Building disciplined financial systems that support sustainable delivery, compliance, and customer trust.",
       icon: "ChartNoAxesCombined",
       gradient: "from-emerald-500 to-teal-600",
@@ -122,6 +121,7 @@ export default function AboutPage() {
       bio: "Driving embedded systems, telemetry architecture, secure integrations, and reliable product engineering.",
       icon: "Cpu",
       gradient: "from-indigo-500 to-violet-600",
+      initials: "VB",
       image: "", // Add a photo path such as /media/leadership/vikas-bhardwaj.jpg
     },
     {
@@ -130,120 +130,57 @@ export default function AboutPage() {
       bio: "Connecting deployments, support, compliance, and customer teams so every solution works in the field.",
       icon: "UsersRound",
       gradient: "from-rose-500 to-pink-600",
+      initials: "OL",
       image: "", // Add a photo path such as /media/leadership/operations-leadership.jpg
     },
   ];
 
-  const partners = [
-    {
-      name: "Government & Public Sector",
-      desc: "We work with government bodies involved in procurement, logistics, and operational management. Our solutions improve transparency, operational efficiency, digital record management, workflow automation, and informed decision-making while supporting secure and reliable public-sector operations.",
-      organizations: [
-        {
-          name: "NAFED",
-          slug: "nafed",
-        },
-        {
-          name: "FCI",
-          slug: "fci",
-        },
-        {
-          name: "NCCF",
-          slug: "nccf",
-        },
-        {
-          name: "Food & Supply",
-          slug: "food-and-supply",
-        },
-      ],
-    },
-
-    {
-      name: "Transport & Logistics",
-      desc: "We develop intelligent technology solutions that streamline transportation, fleet operations, logistics management, asset tracking, workflow automation, and real-time monitoring. Our solutions help organizations optimize resources, improve operational visibility, and enhance service delivery.",
-      organizations: [
-        {
-          name: "CJ Darcl Transport",
-          slug: "cj-darcl-transport",
-        },
-        {
-          name: "Ewheels Transport",
-          slug: "ewheels-transport",
-        },
-        {
-          name: "Shrinivasa Transport",
-          slug: "shrinivasa-transport",
-        },
-        {
-          name: "South East Transport",
-          slug: "south-east-transport",
-        },
-      ],
-    },
-
-    {
-      name: "Energy & EV Mobility",
-      desc: "Our EV Division focuses on supporting the growing electric mobility ecosystem. These partnerships enable us to deliver advanced EV battery management and mobility solutions while ensuring quality, innovation, and reliability.",
-      organizations: [
-        {
-          name: "GK Minda",
-          slug: "gk-minda",
-        },
-        {
-          name: "World Victory",
-          slug: "world-victory",
-        },
-        {
-          name: "Minato Energy",
-          slug: "minato-energy",
-        },
-      ],
-    },
-  ];
+  
 
   return (
     <div className="relative">
       {/* HERO SECTION with Video Background */}
-      <section className="relative py-24 bg-slate-950 text-white overflow-hidden">
-        {/* Video Background */}
+      <section className="group relative overflow-hidden border-b border-slate-200 bg-white py-24 text-slate-950">
+        {/* Existing hero image and overlays; styling only */}
         <div className="absolute inset-0 z-0">
           <img
             src="/media/detail/fleet-control.jpg"
             alt="Indian operations team coordinating global fleet activity"
-            className="w-full h-full object-cover opacity-35"
+            className="h-full w-full object-cover opacity-20 grayscale transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-950/80 to-slate-950/60"></div>
-          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-white via-white/90 to-slate-950/80" />
+          <div className="absolute inset-0 bg-linear-to-t from-white/95 via-transparent to-white/50" />
         </div>
 
-        {/* Floating particles */}
+        {/* Existing floating particles */}
         <div className="absolute inset-0 z-1 overflow-hidden">
           <div
-            className="absolute top-20 right-32 w-64 h-64 bg-sky-500/5 rounded-full blur-3xl animate-pulse"
+            className="absolute right-32 top-20 h-64 w-64 rounded-full bg-sky-100/60 blur-3xl animate-pulse"
             style={{ animationDuration: "4s" }}
-          ></div>
+          />
           <div
-            className="absolute bottom-10 left-20 w-48 h-48 bg-blue-600/5 rounded-full blur-3xl animate-pulse"
+            className="absolute bottom-10 left-20 h-48 w-48 rounded-full bg-slate-900/10 blur-3xl animate-pulse"
             style={{ animationDuration: "6s" }}
-          ></div>
+          />
           <div
-            className="absolute top-1/3 left-1/2 w-96 h-96 bg-sky-400/3 rounded-full blur-3xl animate-pulse"
+            className="absolute left-1/2 top-1/3 h-96 w-96 rounded-full bg-sky-200/30 blur-3xl animate-pulse"
             style={{ animationDuration: "5s" }}
-          ></div>
+          />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center space-y-6">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/10 border border-sky-500/20 text-xs font-bold tracking-widest uppercase text-sky-400">
-            <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse"></span>
+        {/* Existing hero content */}
+        <div className="relative z-10 mx-auto max-w-7xl space-y-6 px-6 text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/85 px-4 py-2 text-xs font-bold uppercase tracking-widest text-sky-700 shadow-sm backdrop-blur-sm transition-transform duration-300 group-hover:-translate-y-0.5">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-sky-500" />
             About Us
           </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+          <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-slate-950 md:text-6xl">
             Pioneering Telemetry & <br />
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-400 to-blue-500">
+            <span className="bg-linear-to-r from-sky-600 to-blue-700 bg-clip-text text-transparent">
               IoT Innovation
             </span>
           </h1>
-          <p className="text-slate-300 text-base md:text-lg max-w-2xl mx-auto font-light">
+          <p className="mx-auto max-w-2xl text-base font-light text-slate-600 md:text-lg">
             Dedicated to engineering high-precision hardware, responsive
             tracking software, and compliant fleet security configurations for
             global operations.
@@ -448,7 +385,7 @@ export default function AboutPage() {
               Our Story
             </span>
             <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
-              Building a Reliable Gateway 
+              Building a Reliable Gateway for Connected Operations
             </h2>
             <div className="space-y-4 text-slate-600 leading-relaxed font-light">
               <p>
@@ -660,7 +597,9 @@ export default function AboutPage() {
                       />
                     ) : (
                       <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-linear-to-br from-slate-100 via-white to-sky-50">
-                        
+                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-sky-600 text-xl font-black text-white shadow-lg">
+                          {member.initials}
+                        </div>
                         <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
                           Add leadership photo
                         </span>
@@ -688,39 +627,39 @@ export default function AboutPage() {
 
 
       {/* CORE VALUES with GIF Animation */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 text-center space-y-16">
+      <section className="border-y border-slate-800 bg-slate-950 py-24 text-white">
+        <div className="mx-auto max-w-7xl space-y-16 px-6 text-center">
           <div className="space-y-4 max-w-3xl mx-auto">
-            <span className="text-xs font-bold tracking-widest uppercase text-sky-600">
+            <span className="text-xs font-bold uppercase tracking-widest text-sky-300">
               The Blueprint
             </span>
-            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-3xl font-extrabold tracking-tight text-white">
               Our Core Values
             </h2>
-            <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+            <p className="text-sm leading-relaxed text-slate-300 md:text-base">
               Every tracking unit we install, every algorithm we deploy, and
               every customer relationship we nurture is driven by these
               fundamental corporate principles.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {coreValues.map((val, i) => (
               <div
                 key={i}
-                className="group bg-slate-50 border border-slate-100 hover:border-sky-200 rounded-2xl p-6 text-left space-y-4 hover:shadow-lg transition-all duration-300 relative overflow-hidden"
+                className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 p-6 text-left shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:border-sky-500/60 hover:bg-slate-900/90 hover:shadow-xl hover:shadow-sky-950/30"
               >
                 {/* Gradient accent bar */}
                 <div
                   className={`absolute top-0 left-0 right-0 h-1 bg-linear-to-r ${val.gradient} opacity-0 group-hover:opacity-100 transition-opacity`}
                 ></div>
-                <div className="p-3 bg-white text-sky-600 h-12 w-12 rounded-xl flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-800 bg-slate-950 p-3 text-sky-300 shadow-sm transition-all group-hover:scale-110 group-hover:border-sky-500 group-hover:bg-sky-500/30">
                   {renderIcon(val.icon)}
                 </div>
-                <h4 className="text-lg font-bold text-slate-900">
+                <h4 className="text-lg font-bold text-white">
                   {val.title}
                 </h4>
-                <p className="text-xs text-slate-500 leading-relaxed">
+                <p className="text-xs leading-relaxed text-slate-400">
                   {val.desc}
                 </p>
               </div>
@@ -779,7 +718,7 @@ export default function AboutPage() {
                   playsInline
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 >
-                  <source src="/media/Hero.mp4" type="video/mp4" />
+                  <source src="/media/realtime-tracking.mp4" type="video/mp4" />
                 </video>
                 <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 via-slate-900/20 to-transparent z-10"></div>
 
@@ -999,95 +938,6 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-linear-to-b from-slate-50/95 to-white/95"></div>
         </div>
 
-       
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center space-y-12">
-          <div className="space-y-3">
-            <span className="text-xs font-bold tracking-widest uppercase text-sky-600">
-              Industries We Serve
-            </span>
-            <h2 className="text-2xl font-bold text-slate-900">
-              Our Trusted Integrations
-            </h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {partners.map((partner, i) => (
-              <div
-                key={i}
-                className="bg-white border border-slate-100 p-6 rounded-xl shadow-sm text-center flex flex-col justify-center items-center space-y-3 hover:shadow-lg hover:border-sky-200 transition-all duration-300 group hover:-translate-y-1"
-              >
-                {/* Industry Name */}
-                <span className="text-lg font-black text-slate-800 tracking-tight font-sans group-hover:text-sky-600 transition-colors">
-                  {partner.name}
-                </span>
-
-                {/* Industry Description */}
-                <span className="text-xs text-slate-500 font-medium leading-relaxed">
-                  {partner.desc}
-                </span>
-
-                {/* Organizations / Companies */}
-                {/* Organizations / Companies */}
-                <div className="w-full pt-5 space-y-2">
-                  {partner.organizations.map((organization) => (
-                    <Link
-                      key={organization.slug}
-                      href={`/partners/${organization.slug}`}
-                      className="
-        group/company
-        flex
-        items-center
-        justify-between
-        w-full
-        px-4
-        py-3
-        rounded-xl
-        bg-slate-50
-        border
-        border-slate-100
-        text-left
-        transition-all
-        duration-300
-        hover:bg-sky-600
-        hover:border-sky-600
-        hover:shadow-md
-        hover:-translate-y-0.5
-      "
-                    >
-                      {/* Company Name */}
-                      <span
-                        className="
-          text-sm
-          font-semibold
-          text-slate-700
-          group-hover/company:text-white
-          transition-colors
-          duration-300
-        "
-                      >
-                        {organization.name}
-                      </span>
-
-                      {/* Arrow */}
-                      <span
-                        className="
-          text-slate-400
-          group-hover/company:text-white
-          group-hover/company:translate-x-1
-          transition-all
-          duration-300
-        "
-                      >
-                        →
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* CTA Section with Video */}

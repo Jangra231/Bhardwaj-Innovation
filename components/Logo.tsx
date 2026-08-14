@@ -9,12 +9,12 @@ interface LogoProps {
 }
 
 export default function Logo({
-  className = "h-11",
+  className = "h-12.5",
   showText = true,
   light = false,
 }: LogoProps) {
   return (
-    <div className={`flex items-center gap-3 select-none ${className}`}>
+    <div className={`flex items-center gap-2 select-none ${className}`}>
       <div className="h-full aspect-square flex items-center justify-center shrink-0">
         <img
           src="/LOgo.png"

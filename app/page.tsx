@@ -16,6 +16,7 @@ import { getUniqueProductMedia } from "@/lib/unique-product-media";
 import { getUniqueServiceMedia } from "@/lib/unique-service-media";
 import UnifiedOperationsConsole from "@/components/UnifiedOperationsConsole";
 import AccessibleServicesProductsSection from "@/components/AccessibleServicesProductsSection";
+import IndustriesMarquee from "@/components/IndustriesMarquee";
 
 // --- Reusable icon renderer ---
 const renderIcon = (name: string, className = "h-6 w-6 text-sky-500") => {
@@ -439,8 +440,8 @@ export default function HomePage() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-slate-600 text-lg md:text-xl font-light leading-relaxed max-w-xl"
             >
-              Advanced GPS Tracking, Smart Customized Software, Fleet
-              Management, and secure IoT Solutions tailored to monitor,
+              Smart Customized Software, Advanced GPS Tracking, Fleet
+              Management, RFID Tracker and IoT Solutions tailored to monitor,
               optimize, and secure your high-value assets and fleet vehicles
               seamlessly.
             </motion.p>
@@ -688,6 +689,10 @@ export default function HomePage() {
                 muted
                 loop
                 playsInline
+                ref={(video) => {
+                  if (video) video.playbackRate = 0.6;
+                }}
+               
                 className="w-full h-full object-cover p-1.5 rounded-2xl"
               >
                 <source src="/media/platform-showcase.mp4" type="video/mp4" />
@@ -733,6 +738,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Industries We Serve */}
+      <IndustriesMarquee />
 
       {/* 5. HOW IT WORKS */}
       <section className="py-24 bg-slate-50 overflow-hidden dot-pattern">

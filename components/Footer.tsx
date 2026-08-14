@@ -24,15 +24,12 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-slate-950 text-slate-300 border-t border-slate-900 pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-slate-900 text-left">
-        <div className="space-y-6">
+    <footer className="bg-slate-950 text-slate-300 border-t border-slate-900 pt-10 pb-5">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8 border-b border-slate-900 text-left">
+        <div className="space-y-4">
           <Logo light showText />
           <p className="text-xs text-slate-400 leading-relaxed font-light">
-            Bhardwaj Innovations is an enterprise pioneer in IoT telematics,
-            manufacturing government-mandated AIS-140 compliance hardware, smart
-            vehicle battery management systems (BMS), and customized logistics
-            tracking software dashboards.
+            Bhardwaj Innovations delivers IoT telematics, AIS-140 hardware, smart BMS, and customized logistics tracking solutions for smarter, connected operations.
           </p>
           <div className="flex gap-4">
             <a
@@ -56,11 +53,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           <h4 className="text-sm font-bold text-white uppercase tracking-wider border-b border-slate-900 pb-2">
             Quick Navigation
           </h4>
-          <ul className="space-y-3">
+          <ul className="space-y-2">
             {quickLinks.map((link, idx) => (
               <li key={idx}>
                 <Link
@@ -74,11 +71,11 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           <h4 className="text-sm font-bold text-white uppercase tracking-wider border-b border-slate-900 pb-2">
             Our Key Services
           </h4>
-          <ul className="space-y-3">
+          <ul className="space-y-2">
             {coreServices.map((srv, idx) => (
               <li key={idx}>
                 <Link
@@ -92,7 +89,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="space-y-6 text-xs text-slate-400 leading-relaxed font-light">
+        <div className="space-y-4 text-xs text-slate-400 leading-relaxed font-light">
           <h4 className="text-sm font-bold text-white uppercase tracking-wider border-b border-slate-900 pb-2">
             Contact Head Office
           </h4>
@@ -123,7 +120,7 @@ export default function Footer() {
           <p className="flex items-center gap-2.5">
             <Lucide.Mail className="h-4 w-4 text-sky-500 shrink-0" />
             <a
-              href="mailto:support@bhardwajinnovations.com"
+              href="mailto:contact@bhardwajinnovations.com"
               className="hover:text-sky-400 transition-colors"
             >
               support@bhardwajinnovations.com
@@ -136,9 +133,9 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pt-8 flex flex-col md:flex-row items-center justify-between text-slate-500 text-[10px] uppercase font-semibold tracking-wider">
+      <div className="max-w-7xl mx-auto px-6 pt-5 flex flex-col md:flex-row items-center justify-between text-slate-500 text-[10px] uppercase font-semibold tracking-wider">
         <p>&copy; {currentYear} Bhardwaj Innovations. All Rights Reserved.</p>
-        <div className="flex gap-6 mt-4 md:mt-0">
+        <div className="flex gap-4 mt-3 md:mt-0">
           <Link
             href="/privacy"
             className="hover:text-sky-500 transition-colors cursor-pointer"
