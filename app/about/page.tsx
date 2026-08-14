@@ -716,7 +716,7 @@ export default function AboutPage() {
                   playsInline
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 >
-                  <source src="/media/realtime-tracking.mp4" type="video/mp4" />
+                  <source src="/media/Hero.mp4" type="video/mp4" />
                 </video>
                 <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 via-slate-900/20 to-transparent z-10"></div>
 
@@ -919,40 +919,9 @@ export default function AboutPage() {
       </section>
 
 
-
-      {/* PARTNERS with Video Background */}
-      <section className="relative py-20 overflow-hidden">
-        {/* Video Background */}
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover opacity-5"
-          >
-            <source src="/media/track-everything.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-linear-to-b from-slate-50/95 to-white/95"></div>
-        </div>
-
-      </section>
-
       {/* CTA Section with Video */}
-      <section className="relative py-24 bg-slate-950 text-white overflow-hidden">
-        {/* Video Background */}
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover opacity-20"
-          >
-            <source src="/media/realtime-tracking.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-linear-to-b from-slate-950 via-slate-950/80 to-slate-950"></div>
-        </div>
+      <section className="relative py-10 bg-slate-950 text-white overflow-hidden">
+        
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-8">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
